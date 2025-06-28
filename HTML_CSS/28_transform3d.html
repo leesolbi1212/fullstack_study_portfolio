@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회전하는 3D 큐브</title>
+    <style>
+      body {
+        background-color: #111;
+        color: white;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .scene {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        perspective: 800px; /* 시점 거리 */
+      }
+
+      .cube {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg) rotateY(-20deg);
+        transition: transform 3s ease-in-out; /* 천천히 부드럽게 회전 */
+      }
+
+      .scene:hover .cube {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+
+      .face {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgba(0, 150, 255, 0.8);
+        border: 2px solid white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        line-height: 200px;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+      }
+
+      .front {
+        transform: rotateY(0deg) translateZ(100px);
+      }
+      .back {
+        transform: rotateY(180deg) translateZ(100px);
+      }
+      .right {
+        transform: rotateY(90deg) translateZ(100px);
+      }
+      .left {
+        transform: rotateY(-90deg) translateZ(100px);
+      }
+      .top {
+        transform: rotateX(90deg) translateZ(100px);
+      }
+      .bottom {
+        transform: rotateX(-90deg) translateZ(100px);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🧊 느리게 회전하는 3D 큐브</h2>
+    <p>마우스를 올려보세요!</p>
+
+    <div class="scene">
+      <div class="cube">
+        <div class="face front">앞</div>
+        <div class="face back">뒤</div>
+        <div class="face right">오른쪽</div>
+        <div class="face left">왼쪽</div>
+        <div class="face top">위</div>
+        <div class="face bottom">아래</div>
+      </div>
+    </div>
+  </body>
+</html>

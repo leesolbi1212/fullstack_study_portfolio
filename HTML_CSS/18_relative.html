@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>relative</title>
+    <style>
+      .container {
+        background-color: #eee;
+        padding: 40px;
+        position: relative; /*부모 태그 relative에 줘야함*/
+        height: 300px;
+      }
+
+      .box {
+        width: 150px;
+        height: 150px;
+        background-color: #4caf50;
+        color: white;
+        font-weight: bold;
+        line-height: 150px;
+        text-align: center;
+        margin-bottom: 20px;
+        position: relative;
+      }
+      .relative-box {
+        background-color: #ff9800;
+        top: -100px;
+        left: 80px;
+      }
+
+      .default-box {
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box default-box">기본 박스</div>
+      <div class="box relative-box">relative 박스</div>
+    </div>
+  </body>
+</html>

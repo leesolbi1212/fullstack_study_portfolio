@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid 레이아웃 활용</title>
+    <style>
+      .layout {
+        display: grid;
+        grid-template-areas:
+          "header header"
+          "sidebar content"
+          "footer footer";
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 60px 1fr 40px;
+        height: 100vh;
+        gap: 10px;
+      }
+
+      .box {
+        padding: 20px;
+        font-weight: bold;
+        display: flex;
+        color: white;
+        align-items: center;
+        justify-content: center;
+      }
+      .header {
+        background-color: #4a90e2;
+        grid-area: header;
+      }
+      .sidebar {
+        background-color: #50e4c2;
+        grid-area: sidebar;
+      }
+      .content {
+        background-color: #f5a623;
+        grid-area: content;
+      }
+      .footer {
+        background-color: #9013fe;
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="box header">header...</div>
+      <div class="box sidebar">sidebar</div>
+      <div class="box content">Main content</div>
+      <div class="box footer">footer</div>
+    </div>
+  </body>
+</html>

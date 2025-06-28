@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경</title>
+    <style>
+      html {
+        background: url(./back.jpg) no-repeat fixed center/cover;
+      }
+      div {
+        /* background-color: gold;*/
+        background-image: url(./bird.png);
+        width: 50%;
+        height: 300px;
+        padding: 20px;
+        border: 3px dotted red;
+        margin-bottom: 20px;
+        background-repeat: no-repeat;
+      }
+
+      #bg1 {
+        background-position: center;
+      }
+      #bg2 {
+        background-position: right bottom;
+      }
+      #bg3 {
+        background-position: 30% 100px;
+      }
+      #bg4 {
+        width: 300px;
+        height: 200px;
+        background-size: contain;
+        /*배경보다 배경 이미지가 작다면 가로세로 같은 비율로 증가시켜 맞춰줌.*/
+      }
+      #bg5 {
+        width: 100px;
+        height: 80px;
+        background-size: cover; /*배경보다 배경 이미지가 크다면 가로세로 같은 비율로 줄여서 보여줌*/
+        background-position: bottom center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg1">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+        aspernatur repellendus deserunt ipsam iure, reprehenderit minima
+        voluptatibus nesciunt aperiam temporibus sint aliquid, culpa et
+        reiciendis dolores neque! Incidunt, ab iste.
+      </p>
+    </div>
+    <div id="bg2">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+        aspernatur repellendus deserunt ipsam iure, reprehenderit minima
+        voluptatibus nesciunt aperiam temporibus sint aliquid, culpa et
+        reiciendis dolores neque! Incidunt, ab iste.
+      </p>
+    </div>
+    <div id="bg3">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+        aspernatur repellendus deserunt ipsam iure, reprehenderit minima
+        voluptatibus nesciunt aperiam temporibus sint aliquid, culpa et
+        reiciendis dolores neque! Incidunt, ab iste.
+      </p>
+    </div>
+    <div id="bg4"></div>
+    <div id="bg5"></div>
+  </body>
+</html>
