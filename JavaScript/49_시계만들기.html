@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시계만들기🕰️</title>
+  </head>
+  <body>
+    <script>
+      /*
+         console에 '년-월-일 시:분:초' 형태로 출력하는 시계 만들기
+         (단, 화면에 시작, 중지 버튼을 만들어 시작을 누르면 시계가 작동하고, 중지를 누르면 시계가 중지됨)
+         */
+
+      function makeClock() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const date = now.getDate();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+
+        console.log(`${year}-${month}-${date} ${hours}:${minutes}:${seconds}`);
+      }
+
+      let si; //전역변수로 선언하여 startClock()과 stopClock()에서 사용하기 위해
+
+      function startClock() {
+        si = setInterval(makeClock, 1000);
+        alert("시계 시작~!");
+      }
+
+      function stopClock() {
+        clearInterval(si);
+        alert("시계 멈춰~!");
+      }
+    </script>
+
+    <button onclick="startClock()">시작🐸</button>
+    <button onclick="stopClock()">중지🐸</button>
+  </body>
+</html>

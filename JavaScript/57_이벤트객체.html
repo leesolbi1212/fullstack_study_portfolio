@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 객체</title>
+    <style>
+      #clickArea {
+        width: 300px;
+        height: 150px;
+        background-color: #f0f0f0;
+        border: 1px solid #aaa;
+        line-height: 150px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 엔터키 치면 어디 감. -->
+    <form action="./regist">
+      <h2>이벤트 객체를 확인해보세요!</h2>
+      <div id="clickArea">여기를 클릭하세요</div>
+      <input type="text" id="inputbox" placeholder="여기에 입력하세요" />
+    </form>
+    <script>
+      document
+        .getElementById("clickArea")
+        .addEventListener("click", function (event) {
+          alert(
+            `클릭한 위치(좌표) : x: ${event.clientX}, y: ${event.clientY}\n` +
+              `이벤트 타입 : ${event.type}\n` +
+              `이벤트 타겟 : ${event.target.id}\n`
+          );
+        });
+
+      document
+        .getElementById("inputbox")
+        .addEventListener("keydown", function (event) {
+          console.log("입력한 키 :", event.key); // 입력한 키
+          console.log("키 코드 :", event.keyCode); // 키 코드
+          console.log("이벤트 타겟 :", event.target.id); // 이벤트 타겟
+        });
+      // keydown : 키를 눌렀을 때 발생하는 이벤트
+
+      document
+        .getElementById("inputbox")
+        .addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault(); // 기본 동작 방지 (폼 제출 방지)
+            alert("엔터키는 막았어요");
+          }
+          // keypress : 키를 눌렀을 때 발생하는 이벤트 (입력 가능 키에 대해서만 발생)
+        });
+    </script>
+  </body>
+</html>

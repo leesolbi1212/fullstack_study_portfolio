@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navigator 객체</title>
+  </head>
+  <body>
+    <h2>navigatot 객체</h2>
+    <button onclick="showNavigatorInfo()">navigator 정보보기</button>
+    <script>
+      function showNavigatorInfo() {
+        console.log("브라우저 이름(userAgent):", navigator.appName);
+        console.log("운영체제(platform):", navigator.platform);
+        console.log("언어설정(language):", navigator.language);
+        console.log("온라인여부(onLine):", navigator.onLine); //내 서버에 연결되어 있는지 확인
+        console.log(
+          "쿠키사용가능여부(cookieEnabled) :",
+          navigator.cookieEnabled
+        ); //
+      }
+    </script>
+  </body>
+</html>

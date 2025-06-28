@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="greeting">안녕하세요</p>
+    <p class="item">아이템1</p>
+    <p class="item">아이템2</p>
+    <p class="desc">첫 번째 문장</p>
+    <p class="desc">두 번째 문장</p>
+
+    <ul id="list">
+      <li>기존항목</li>
+    </ul>
+
+    <img id="image" src="./images/cat.png" alt="이미지" />
+
+    <button onclick="changeText()">텍스트 변경</button>
+    <button onclick="highlightItems()">강조</button>
+    <button onclick="updateFirst()">첫 번째만 바꾸기</button>
+    <button onclick="addItem()">항목 추가</button>
+    <button onclick="changeImage()">이미지 변경</button>
+    <button onclick="removeText()">삭제</button>
+
+    <script>
+      function changeText() {
+        // DOM을 사용하여 HTML 요소의 내용을 변경
+        document.getElementById("greeting").innerText = "반가워요😎";
+      }
+
+      function highlightItems() {
+        // DOM을 사용하여 HTML 요소의 스타일을 변경
+        const items = document.getElementsByClassName("item");
+        // class가 item인 요소를 모두 배열로 가져옴
+        for (let i = 0; i < items.length; i++) {
+          items[i].style.color = "deeppink"; // 모든 아이템의 글자색을 딥핑크로 변경
+        }
+      }
+
+      function updateFirst() {
+        // document.querySelector(".desc").innerText = "바뀐 첫 문장!";
+        const qs = document.querySelectorAll(".desc");
+        for (let i = 0; i < qs.length; i++) {
+          qs[i].innerText = "문장 바뀌어라 얍 💫";
+        }
+      }
+
+      function addItem() {
+        const newItem = document.createElement("li");
+        // 새로운 li 요소 생성 <li></li>
+        // document.createElement() 메서드는 새로운 HTML 요소를 생성하는 메서드
+        newItem.innerHTML = "<a href='http://www.naver.com'>네이버</a>"; // 새로운 항목의 내용 설정 <li>네이버</li>
+        // innerHTML 속성은 요소의 HTML 내용을 설정하는 속성
+        document.getElementById("list").appendChild(newItem); // ul 요소에 새로운 항목 추가
+        // appendChild() 메서드는 부모 요소의 자식 요소로 추가하는 메서드
+      }
+
+      function changeImage() {
+        // 이미지 요소의 src 속성을 변경
+        document
+          .getElementById("image")
+          .setAttribute("src", "./images/solbi.png");
+      }
+
+      function removeText() {
+        document.getElementById("greeting").remove(); // greeting 요소 삭제
+        // remove() 메서드는 요소를 DOM에서 제거하는 메서드
+      }
+    </script>
+  </body>
+</html>

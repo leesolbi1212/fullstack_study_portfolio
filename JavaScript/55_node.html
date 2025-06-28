@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>node</title>
+  </head>
+  <body>
+    <div id="box"></div>
+
+    <ul id="list">
+      <li id="item1">첫 번째 항목</li>
+      <li id="item2">두 번째 항목</li>
+    </ul>
+
+    <div id="wrapper">
+      <p id="old">기존문단</p>
+    </div>
+
+    <script>
+      const div = document.getElementById("box");
+      // <p>
+      const p = document.createElement("p");
+      //<p> 새 문단 추가!! </p>
+      p.innerText = "새 문단 추가!!";
+      // <div id="box">에 <p> 추가
+      // div.appendChild(p); // <div id="box">에 <p> 추가
+      div.appendChild(p);
+
+      const ul = document.getElementById("list");
+      // 일단 list 찾아 오기
+      const li = document.getElementById("item1");
+      ul.removeChild(li); // <li id="item1"> 삭제
+
+      const wrapper = document.getElementById("wrapper"); // <div id="wrapper"> 찾기
+      const oldNode = document.getElementById("old"); // <p id="old"> 찾기
+      const newNode = document.createElement("p");
+      newNode.innerText = "새 문단 입니당!"; // <p> 새 문단 입니당! </p>
+      wrapper.replaceChild(newNode, oldNode); // <p id="old">를 <p>로 교체
+      // replaceChild(새로운 노드, 기존 노드) : 기존 노드를 새로운 노드로 교체하는 메서드
+
+      const newItem = document.createElement("li");
+      // <li> 새 항목 </li> 일단 만들어
+      newItem.innerText = "사과"; // <li> 사과 </li>
+      const existingItem = ul.firstElementChild;
+      // ul의 첫 번째 자식 요소를 가져옴
+      ul.insertBefore(newItem, existingItem);
+      // <li> 사과 </li>를 <li id="item1"> 앞에 삽입
+
+      //------------------------------------------------------------
+      /*<div id="wrapper">
+            <p id="old">기존문단</p>  <- 얘 복사할거임.
+          </div>*/
+      //------------------------------------------------------------
+      const origal = document.getElementById("wrapper");
+      const clone = origal.cloneNode(true);
+      // cloneNode(true) : true를 인자로 주면 깊은 복사, false를 주면 얕은 복사
+      document.body.appendChild(clone); // body에 복사한 노드 자식으로 추가
+    </script>
+  </body>
+</html>
