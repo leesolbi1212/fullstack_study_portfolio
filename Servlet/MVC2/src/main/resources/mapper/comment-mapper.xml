@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--구분용 이름-->
+<mapper namespace="comment">
+
+    <insert id="insertComment" parameterType="com.koreait.mvc2.dto.CommentDTO">
+        insert into comment (board_idx, content, user_id) values (#{board_idx}, #{content}, #{user_id})
+    </insert>
+    <select id="getCommentByBoardIdx" parameterType="int" resultType="com.koreait.mvc2.dto.CommentDTO">
+        select * from comment where board_idx=#{board_idx} order by idx desc
+    </select>
+    <update id="updateComment" parameterType="com.koreait.mvc2.dto.CommentDTO">
+        update comment set content=#{content} where idx=#{idx} and user_id=#{user_id}
+    </update>
+
+    <delete id="deleteComment" parameterType="com.koreait.mvc2.dto.CommentDTO">
+        delete from comment where idx=#{idx} and user_id=#{user_id}
+    </delete>
+
+
+</mapper>
