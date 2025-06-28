@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.0'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.koreait'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // ◼️ Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    //   → Spring MVC, embedded Tomcat 등 웹 애플리케이션 개발용
+
+    // ◼️ Lombok (컴파일 타임에만 필요)
+    compileOnly     'org.projectlombok:lombok'         // @Getter, @Setter 등 자동 생성
+    annotationProcessor 'org.projectlombok:lombok'    //   → IDE/컴파일러용 애노테이션 프로세서
+
+    // ◼️ Database Driver
+    runtimeOnly 'com.mysql:mysql-connector-j'         // MySQL JDBC 드라이버
+
+    // ◼️ MyBatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+    //   → Spring Boot와 MyBatis 연동, Mapper 스캔 등
+
+    // ◼️ Security / 암호화
+    implementation 'org.mindrot:jbcrypt:0.4'           // BCrypt 비밀번호 해싱
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'   // JWT 생성/검증 API
+    runtimeOnly   'io.jsonwebtoken:jjwt-impl:0.11.5'   // JWT 구현체
+    runtimeOnly   'io.jsonwebtoken:jjwt-jackson:0.11.5'// JWT 페이로드 JSON 처리 (Jackson)
+
+    // ◼️ Testing
+    testImplementation   'org.springframework.boot:spring-boot-starter-test'
+    //   → JUnit, Mockito, Spring Test 등
+    testRuntimeOnly      'org.junit.platform:junit-platform-launcher'
+    //   → JUnit 플랫폼 런처
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
